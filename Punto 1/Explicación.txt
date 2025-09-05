@@ -1,0 +1,79 @@
+# Comparación entre Programación Imperativa (Python) y Declarativa (Haskell)
+
+Este documento presenta un análisis comparativo entre dos enfoques de programación aplicados a un mismo problema: **ordenar una lista de estudiantes según sus calificaciones en orden descendente** y, en caso de empate, **ordenarlos alfabéticamente por nombre**.
+
+Se implementaron dos soluciones:
+- **Python (imperativo):** usando bucles, mutabilidad y control explícito del flujo.
+- **Haskell (declarativo/funcional):** usando funciones puras, estructuras inmutables y abstracción de alto nivel.
+
+---
+
+## Comparación de Claridad y Legibilidad del Código
+
+- **Python (imperativo):**  
+  El código es más largo y detallado. Se deben escribir bucles anidados, condiciones y realizar intercambios manuales entre los elementos. Esto hace que la lógica sea menos directa, ya que el programador necesita seguir el flujo paso a paso para entender la intención.
+
+- **Haskell (declarativo):**  
+  El código es más conciso y expresivo. La intención del ordenamiento queda claramente descrita en una sola función de comparación. No se describe cómo recorrer la lista, sino qué criterio se debe aplicar. Esto mejora la legibilidad y facilita la comprensión.
+
+---
+
+## Nivel de Expresividad y Abstracción
+
+- **Python (imperativo):**  
+  Se trabaja en un nivel más bajo, describiendo **cómo** se debe ejecutar el ordenamiento. El programador debe preocuparse por los detalles del algoritmo, como índices y condiciones.
+
+- **Haskell (declarativo):**  
+  Opera en un nivel más alto de abstracción. El enfoque se centra en **qué** resultado se busca y no en los pasos para lograrlo. Esto hace que el código sea más expresivo y cercano a la descripción del problema real.
+
+---
+
+## Manejo de Estructuras de Datos (Mutabilidad vs Inmutabilidad)
+
+- **Python (imperativo):**  
+  Las estructuras son **mutables**. La lista de estudiantes se modifica directamente en memoria mediante intercambios sucesivos. Esto introduce efectos secundarios y hace que el estado del programa cambie constantemente.
+
+- **Haskell (declarativo):**  
+  Las estructuras son **inmutables**. El ordenamiento devuelve una **nueva lista** sin alterar la original. Esto elimina efectos secundarios, facilita el razonamiento lógico y da mayor seguridad en la ejecución.
+
+---
+
+## Manejo de Estado en Cada Paradigma
+
+- **Python (imperativo):**  
+  El estado del programa cambia en cada iteración del bucle. Es necesario mantener variables auxiliares e índices para controlar el proceso, lo que aumenta la complejidad y el riesgo de errores.
+
+- **Haskell (declarativo):**  
+  No existe un estado mutable que controlar. Cada función recibe datos de entrada y devuelve un nuevo resultado sin alterar el original. Esto simplifica el razonamiento y hace que el comportamiento del programa sea más predecible.
+
+---
+
+## Facilidad de Mantenimiento y Extensión
+
+- **Python (imperativo):**  
+  Si se requiere modificar el criterio de ordenamiento, es necesario alterar las condiciones dentro de los bucles. Esto puede implicar cambios en varias líneas de código, aumentando el riesgo de introducir errores.
+
+- **Haskell (declarativo):**  
+  El criterio de ordenamiento está concentrado en una única función. Si se quisiera agregar un nuevo criterio (por ejemplo, ordenar también por apellido), bastaría con modificar una sola línea, facilitando el mantenimiento y la extensión.
+
+---
+
+## Eficiencia de Cada Solución
+
+- **Python (imperativo):**  
+  La implementación usa el algoritmo de burbuja con complejidad **O(n²)**, lo cual es poco eficiente para listas grandes. Aunque Python ofrece métodos más eficientes (`sorted`), aquí se eligió la versión imperativa para ilustrar el paradigma.
+
+- **Haskell (declarativo):**  
+  La función `sortBy` utiliza algoritmos optimizados con complejidad aproximada de **O(n log n)**. Esto lo hace más eficiente para manejar grandes volúmenes de datos sin necesidad de implementar manualmente un algoritmo.
+
+---
+
+## Conclusiones
+
+- **Imperativo (Python):**  
+  Requiere mayor detalle en la implementación, ofrece control explícito sobre el proceso, pero su mantenimiento es más complejo y puede ser menos eficiente. El programador debe pensar en **cómo** resolver el problema paso a paso.
+
+- **Declarativo (Haskell):**  
+  Permite expresar la intención de forma directa, sin preocuparse por el control del flujo o la manipulación de memoria. Se enfoca en el **qué** y no en el **cómo**, logrando un código más expresivo, seguro y fácil de mantener.
+
+

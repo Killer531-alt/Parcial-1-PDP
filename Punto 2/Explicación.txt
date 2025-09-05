@@ -1,0 +1,56 @@
+# Gestión Dinámica de Memoria en C para Registros de Estudiantes
+
+Este proyecto implementa un sistema de gestión de estudiantes en **C**, optimizando el uso de memoria mediante asignación dinámica. Cada estudiante cuenta con un registro que incluye:
+
+- Nombre  
+- Apellido  
+- Edad  
+- Número de identificación  
+- Conjunto de calificaciones  
+
+El objetivo es demostrar cómo aprovechar **malloc**, **free**, **bitfields** y estructuras dinámicas para un uso eficiente de la memoria.
+
+---
+
+## Características del Programa
+
+1. **Asignación dinámica de memoria**  
+   - Se reserva únicamente la memoria necesaria para nombres, apellidos y calificaciones.  
+   - Se ajusta el tamaño de los arrays de calificaciones según el número real de materias.  
+
+2. **Liberación de memoria**  
+   - Cada estudiante cuenta con una función que libera la memoria asignada dinámicamente, evitando fugas de memoria.  
+
+3. **Optimización con `bitfields`**  
+   - La edad se almacena en 7 bits (suficiente hasta 127 años).  
+   - El número de identificación se almacena en 24 bits (soporta hasta 16 millones de IDs).  
+   - Esto reduce el espacio ocupado en la estructura del estudiante.  
+
+4. **Compactación implícita**  
+   - Cada registro ocupa exactamente la memoria necesaria, evitando desperdicio.  
+   - Al liberar y reasignar memoria, se aprovecha mejor el heap del sistema.  
+
+---
+
+## Flujo del Programa
+
+- **Creación de estudiantes:**  
+  Los datos de cada estudiante se asignan dinámicamente en memoria, adaptándose al tamaño de cada campo.  
+
+- **Visualización de registros:**  
+  Se puede mostrar la información completa de cada estudiante (ID, nombre, apellido, edad y calificaciones).  
+
+- **Liberación de memoria:**  
+  Una vez que el estudiante ya no es necesario, se libera la memoria asociada a sus cadenas, calificaciones y estructura principal.  
+
+---
+
+## Conclusiones
+
+- El uso de **malloc** y **free** permite un control preciso de la memoria.  
+- Las **cadenas dinámicas** aseguran que no se desperdicien bytes al almacenar nombres y apellidos.  
+- Los **arrays dinámicos** hacen que las calificaciones ocupen exactamente el espacio requerido.  
+- Los **bitfields** optimizan el espacio para campos pequeños como edad e identificación.  
+- Este enfoque logra una gestión más eficiente, compacta y escalable de los registros de estudiantes.  
+
+---
